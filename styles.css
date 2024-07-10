@@ -1,0 +1,26 @@
+*{
+    background: rgb(19, 76, 151);
+}
+.title{
+    text-align: center;
+     color: rgb(8, 7, 6);
+     text-shadow: 2px 2px #161102;
+}
+.fr{
+     position: absolute; 
+    top: 40%;
+   
+    left: 50%;
+
+
+    transform: translate(-50%, -50%);
+} 
+.form-group{
+    color: black;
+    font-weight: 700;
+}
+.result{
+    color: black;
+    padding: 10px 10px;
+    font-weight: 700;
+}

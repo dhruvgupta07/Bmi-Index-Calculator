@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link your custom CSS file if needed -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.querySelector('form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+  
+        const height = parseFloat(document.querySelector('#exampleInputHeight').value);
+        const weight = parseFloat(document.querySelector('#exampleInput').value);
+        const result = document.querySelector('.result'); // Corrected selector
+  
+        if (isNaN(height) || height <= 0 || isNaN(weight) || weight <= 0) {
+          result.innerHTML = "Please give valid entries :(";
+        } else {
+          let bmi = (weight / ((height * height) / 10000)).toFixed(2);
+          if (bmi < 18.5) result.innerHTML = `You are Underweight :-( BMI ${bmi}`;
+          else if (bmi > 24.9) result.innerHTML = `You are Overweight :-( BMI ${bmi}`;
+          else result.innerHTML = `You are Healthy :-) BMI ${bmi}`;
+        }
+      });
+    });
+</script>
+  
+<body>
+    <h1 class="title">BMI CALCULATOR</h1>
+    <div class="fr">
+        <form>
+                <div class="form-group">
+                  <label for="exampleInputHeight">Height</label>
+                  <input type="number" class="form-control" id="exampleInputHeight"  placeholder="Enter your height in meters">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInput">Weight</label>
+                  <input type="number" class="form-control" id="exampleInput" placeholder="Enter your weight in kg's">
+                </div>
+                <div class="result"></div>
+                <button type="submit" class="btn btn-primary">Calculate</button>
+       
+          </form>
+    </div>
+</body>
+</html>
